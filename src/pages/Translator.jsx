@@ -9,15 +9,42 @@ function Translator() {
     const translateText = async () => {
         if (!text) return;
 
-        const res = await fetch(
-            `https://api.mymemory.translated.net/get?q=${text}&langpair=en|${language}`
-        );
-        const data = await res.json();
-        setTranslated(data.responseData.translatedText);
+        const url = "https://google-translate113.p.rapidapi.com/api/v1/translator/text";
+
+        const options = {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+                "X-RapidAPI-Key": import.meta.env.VITE_API_KEY,
+                "X-RapidAPI-Host": "google-translate113.p.rapidapi.com",
+            },
+            body: JSON.stringify({
+                from: "en",
+                to: language,
+                text: text,
+            }),
+        };
+
+        try {
+            const res = await fetch(url, options);
+            const data = await res.json();
+
+            console.log("DATA:", data);
+
+            setTranslated(
+                data.translatedText ||
+                data.trans ||
+                data.data ||
+                "No translation found"
+            );
+        } catch (err) {
+            console.error(err);
+        }
     };
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(translated);
+        alert("Copied!");
     };
 
     return (
