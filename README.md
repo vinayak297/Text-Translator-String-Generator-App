@@ -79,4 +79,15 @@ src/
 - Handling asynchronous operations
 - Building and deploying a React application
 
+## 📸 Screenshots
+### Home Page
+<img width="1919" height="953" alt="image" src="https://github.com/user-attachments/assets/373d8d99-24db-46f1-aa2f-43e0b96ae4c0" />
+
+### Translator
+<img width="1919" height="954" alt="image" src="https://github.com/user-attachments/assets/806986b3-bee3-451a-af74-df46a404c6c0" />
+
+### Generator
+<img width="1919" height="949" alt="image" src="https://github.com/user-attachments/assets/b616084b-2f41-4c7b-ba73-120f3554d880" />
+
+
 
